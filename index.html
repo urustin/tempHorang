@@ -18,17 +18,20 @@
     <br>
     <input type="text" id="name" name="name">
     <br>
-    <label for="phoneNumber">휴대폰 번호 :</label>
+    <label for="phoneNumber">휴대폰 번호 마지막 네자리 :</label>
     <br>
     <input type="text" id="phoneNumber" name="phoneNumber" oninput="checkPhoneNumber()"><br>
     <br>
 
-    <button onclick="checkOrder()">Fetch Data</button>
-    <div id="result">
+    <button onclick="checkOrder()">조회하기</button>
+    <div id="loading" style="display: none;"></div>
+    <div id="result" style="display: none;">
         <h2></h2>
         <h4 id="send_name">주문자 성함 : </h4>
         <h4 id="send_contact">휴대폰 번호 : </h4>
-        <h4 id="expected_date">배송 예약 날짜 : </h4>
+        <h4 id="expected_date">출고 예정일 : <br><br>
+            (택배 도착일이 아닌 <strong>"발송일"</strong>지정 예약입니다.)<br>- 보통 영업일 기준 1~2일 후 도착합니다.
+        </h4>
         <h4 id="rcv_name">받는 분 성함 : </h4>
         <h4 id="rcv_contact">받는 분 연락처 : </h4>
         <h4 id="rcv_address">받는 분 주소 : </h4>

@@ -3,11 +3,11 @@ const a = document.querySelector("#phoneNumber");
 const b = document.querySelector("#submit");
 
 function checkPhoneNumber(){
-    
-    if(a.value.length===3||a.value.length===8){
-        a.value+="-";
-    }
 
+    if(a.value.length>4){
+        alert("휴대폰 번호 마지막 4자리를 입력해주세요!")
+        a.value="";
+    }
 }
 
 
@@ -97,11 +97,25 @@ function checkOrder() {
     let name = document.getElementById('name').value;
     let phoneNumber = document.getElementById('phoneNumber').value;
 
-    var xhr = new XMLHttpRequest();
+    // Show loading animation
+    document.getElementById('loading').style.display = 'block';
+    startLoadingAnimation();
+
+    let xhr = new XMLHttpRequest();
+    //server
     xhr.open('GET', `https://ec2.flaresolution.com/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
     
+    //local
+    // xhr.open('GET', `http://localhost:5007/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
+    
     xhr.onload = function() {
+
+        // Stop loading animation
+        stopLoadingAnimation();
+
         if (this.status == 200) {
+            let resultElement = document.getElementById("result");
+            resultElement.style.display = 'block';
             let orders = JSON.parse(this.responseText);
             console.log(orders);
             if (orders.error) {
@@ -112,6 +126,12 @@ function checkOrder() {
         } else {
             document.getElementById('result').innerText = '오류가 발생하였습니다! 번호를 다시한번 확인해주세요!';
         }
+    };
+
+    xhr.onerror = function() {
+        // Stop loading animation in case of error
+        stopLoadingAnimation();
+        document.getElementById('result').innerText = 'An error occurred during the request.';
     };
 
     xhr.send();
@@ -125,7 +145,7 @@ function displayOrders(orders) {
         let orderListString = "";
         order.orderList.forEach((item, idx) => {
             if (item !== "") {
-                orderListString += `${idx + 1}호 : ${item}개<br>`;
+                orderListString += `${idx + 1}번 선물세트 : ${item}개<br>`;
             }
         });
     
@@ -134,7 +154,10 @@ function displayOrders(orders) {
                 <h4 class="orderHeader">Order ${index + 1}</h4>
                 <p>주문자 성함: ${order.send_name}</p>
                 <p>휴대폰 번호: ${order.send_contact}</p>
-                <p>배송 예약 날짜: ${order.expected_date}</p>
+                <p>배송 예약 날짜: </p>
+                <p id="expected_date">출고 예정일 : ${order.expected_date}<br><br>
+                    (택배 도착일이 아닌 <strong>"발송일"</strong>지정 예약입니다.)<br>- 보통 영업일 기준 1~2일 후 도착합니다.
+                </p>
                 <p>받는 분 성함: ${order.rcv_name}</p>
                 <p>받는 분 연락처: ${order.rcv_contact}</p>
                 <p>받는 분 주소: ${order.rcv_address}</p>
@@ -144,4 +167,27 @@ function displayOrders(orders) {
         `;
         resultDiv.innerHTML += orderInfo;
     });
+}
+
+
+// interval
+
+
+
+function startLoadingAnimation() {
+    let loadingInterval = "";
+    const loadingElement = document.getElementById('loading');
+    let dots = 0;
+    loadingElement.innerText = 'Loading';
+    
+    loadingInterval = setInterval(() => {
+        dots = (dots + 1) % 4; // Cycle from 0 to 3
+        loadingElement.innerText = 'Loading' + '.'.repeat(dots);
+    }, 200); // Update every 200 milliseconds
+}
+
+function stopLoadingAnimation() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.innerText ="";
+    document.getElementById('loading').style.display = 'none';
 }
