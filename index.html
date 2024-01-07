@@ -1,0 +1,41 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호랑곶감</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <h1>호랑곶감 주문 조회 페이지</h1>
+
+    <label for="name">성함: (구글 폼에 넣어주신 성명 그대로 적어주셔야 합니다!)</label>
+    <br>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="phoneNumber">휴대폰 번호 :</label>
+    <br>
+    <input type="text" id="phoneNumber" name="phoneNumber" oninput="checkPhoneNumber()"><br>
+    <br>
+
+    <button onclick="checkOrder()">Fetch Data</button>
+    <div id="result">
+        <h2></h2>
+        <h4 id="send_name">주문자 성함 : </h4>
+        <h4 id="send_contact">휴대폰 번호 : </h4>
+        <h4 id="expected_date">배송 예약 날짜 : </h4>
+        <h4 id="rcv_name">받는 분 성함 : </h4>
+        <h4 id="rcv_contact">받는 분 연락처 : </h4>
+        <h4 id="rcv_address">받는 분 주소 : </h4>
+        <h4 id="orderList">주문 내역 : </h4>
+        <h4 id="totalFee">총 금액(배송비 포함) : </h4>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
