@@ -155,7 +155,7 @@ function displayOrders(orders) {
                 <p>주문자 성함: ${order.send_name}</p>
                 <p>휴대폰 번호: ${order.send_contact}</p>
                 <p>배송 예약 날짜: </p>
-                <p id="expected_date">출고 예정일 : ${order.expected_date}<br><br>
+                <p id="expected_date">출고 예정일 : ${order.expected_date}<br>
                     (택배 도착일이 아닌 <strong>"발송일"</strong>지정 예약입니다.)<br>- 보통 영업일 기준 1~2일 후 도착합니다.
                 </p>
                 <p>받는 분 성함: ${order.rcv_name}</p>
