@@ -103,10 +103,10 @@ function checkOrder() {
 
     let xhr = new XMLHttpRequest();
     //server
-    xhr.open('GET', `https://ec2.flaresolution.com/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
+    // xhr.open('GET', `https://ec2.flaresolution.com/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
     
     //local
-    // xhr.open('GET', `http://localhost:5007/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
+    xhr.open('GET', `http://localhost:5007/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
     
     xhr.onload = function() {
 
