@@ -15,7 +15,7 @@ function countBox(){
     // local
     // fetch(`http://localhost:5008/count-box?formattedDate=${encodeURIComponent(formattedDate)}`)
     // global
-    fetch(`http://ec2.flaresolution/count-box?formattedDate=${encodeURIComponent(formattedDate)}`)
+    fetch(`https://ec2.flaresolution/count-box?formattedDate=${encodeURIComponent(formattedDate)}`)
         .then(response => response.json()) // Return the promise from response.json()
         .then(data => {
             console.log("loaded!");
