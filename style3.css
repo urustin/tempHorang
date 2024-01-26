@@ -145,27 +145,37 @@ body{
 }
 .box_title{
     width: 40%;
-    padding: 5%;
+    padding: 2% 5%;
 }
 
 .box_printAndDate{
     width: 40%;
-    padding: 5%;
+    padding: 2% 5%;
     display:flex;
-
+    align-items: center;
     /* background-color: cyan; */
+}
+.box_printAndDate button{
+    height: 50px;
+    font-size: large;
 }
 
 
 .container_controller{
     /* background-color: brown; */
-    
+    font-size: 1.5rem;
+    margin : 20px 0px;
 }
 .box_searchDate{
     margin-left: 50%;
 }
 
+.box_searchDate button{
+    font-size: large;
+}
+
 #date{
     margin-top: 20px;
     margin-left: 20px;
+    font-size: large;
 }
