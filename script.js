@@ -26,29 +26,6 @@ function checkSubmit(){
 // a.addEventListener("click",checkPhoneNumber);
 // b.addEventListener("click",checkSubmit);
 
-document.getElementById('detailsForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var name = document.getElementById('name').value;
-    var phoneNumber = document.getElementById('phoneNumber').value;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:5007/submit?name=' + encodeURIComponent(name) + '&phoneNumber=' + encodeURIComponent(phoneNumber), true);
-
-    xhr.onload = function() {
-        if (this.status == 200) {
-            document.getElementById('result').innerText = this.responseText;
-            
-        } else {
-            document.getElementById('result').innerText = 'Error fetching data';
-        }
-    };
-
-    xhr.send();
-});
-
-
-
 
 
 
@@ -103,10 +80,10 @@ function checkOrder() {
 
     let xhr = new XMLHttpRequest();
     //server
-    xhr.open('GET', `https://ec2.flaresolution.com/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
+    // xhr.open('GET', `https://ec2.flaresolution.com/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
     
     //local
-    // xhr.open('GET', `http://localhost:5007/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
+    xhr.open('GET', `http://localhost:5008/check-order?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}`, true);
     
     xhr.onload = function() {
 
