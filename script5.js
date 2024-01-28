@@ -26,8 +26,10 @@ async function submitOrder() {
             request_delivery: document.querySelector("#request_delivery").value
         };
         console.log(orderData);        
-
-        const response = await fetch('http://localhost:5008/submit-order', {
+        // global
+        const response = await fetch('https://ec2.flaresolution.com/submit-order', {
+        // local
+        // const response = await fetch('http://localhost:5008/submit-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
