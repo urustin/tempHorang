@@ -1,0 +1,53 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap');
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;  
+    text-align: center; 
+}
+
+.imgBox{
+    position: relative;
+    
+}
+
+.productImg{
+    width:60%;
+    padding: 0 20%;
+    object-fit: cover; 
+}
+.imgBox .imgCaption{
+    position:absolute;
+    right: 20%;
+    bottom: 10px;
+    text-align:end;
+    width: 20%;
+    /* left:40%; */
+}
+
+.imgBox .imgCaption h4,h6{
+    margin: 0px;
+}
+.imgBox .imgCaption h6{
+    color: rgb(40, 40, 40);
+    opacity: 0.8;
+}
+
+#priceTag{
+    position: fixed;
+    top:30px;
+    right:10%;
+    text-align: end;
+    z-index: 20;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#btn_submit{
+    margin-top: 40px;
+    margin-bottom: 150px;
+}
+label{
+    font-weight: 700;
+}
