@@ -6,7 +6,7 @@
 // searchDate.valueAsDate = new Date();
 
 async function submitOrder() {
-    
+    console.log(validate_form());
 
     try {
         startLoadingAnimation();
@@ -147,7 +147,6 @@ function hiddenOrder(){
 // update price
 function update_price(){
     
-
     let product1 = document.querySelector("#product1").value;
     let product2 = document.querySelector("#product2").value;
     let product3 = document.querySelector("#product3").value;
@@ -204,4 +203,16 @@ function newOrder(){
     }else{
 
     }
+}
+
+
+
+function validate_form(){
+    
+    const reserve_date = document.querySelector("#reserve_date");
+    console.log(reserve_date.value);
+    if(reserve_date.value === ""){
+        alert("배송날짜가 누락되었습니다!");
+    }
+    
 }
