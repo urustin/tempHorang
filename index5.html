@@ -9,21 +9,62 @@
 <body>
     <h1>호랑곶감 주문하기</h1>
     <h4></h4>
+
+    <div class="box_description">
+        <h4>상세한 상품 설명을 꼭 먼저 확인해주세요!
+            <button><a href="https://blog.naver.com/sanzalag/222162521584">상세한 상품설명 보기</a></button>
+        </h4>
+        <h4>
+            입금 후 다음날부터 주문내역을 조회하실 수 있습니다!
+            <button><a href="https://temp-horang.vercel.app/index.html">주문 확인</a></button>
+        </h4>
+        <h4>
+            대량 주문이나 기타 문의사항은 카톡으로 연락주세요!
+            <button><a href="http://pf.kakao.com/_INxgzxb">해청농원 카카오톡</a></button>
+        </h4>
+        <h4>
+            입금 계좌를 확인/복사하시려면 눌러주세요!
+            <button><a href="./bankAccount.html">입금계좌 확인/복사하기</a></button>
+        </h4>
+        
+    </div>
     <br>
     <div id="orderBox">
 
-    
-        <h2>상품 선택</h2>
+        
+        <!-- <h2 style="margin-bottom: 30px;">상품 선택</h2> -->
         <!-- price -->
-        <div id="priceTag">현재 금액 : 0원<br>(50000원 이상 무료배송)</div>
+        <div id="priceTag" class="none">현재 금액 : 0원<br>(50000원 이하<br>택배비 4000원)</div>
 
+        <div class="box_reserve_date">
+
+        
+            <label for="reserve_date">날짜 지정</label>
+            <!-- option -->
+            <br>
+            <h4>원하시는 발송 날짜를 골라주세요!</h4>
+            <h5>택배 도착일이 아닌 "발송일"을 지정 예약하실 수 있습니다.</h5>
+            <h5>-보통 영업일 기준 1~2일 후 도착합니다.</h5>
+            <h5>올해 설날은 2/10(토) 입니다!</h5>
+            <select name="reserve_date" id="reserve_date">
+                <option>choose</option>
+                <option>1/29</option>
+                <option>1/30</option>
+                <option>1/31</option>
+                <option>2/1</option>
+                <option>2/2</option>
+                <option>2/3</option>
+            </select>
+            <br>
+
+        </div>
         <!-- 1 -->
         <div class="imgBox">
             <img class="productImg" src="./images/products/1.jpeg" alt="" srcset="">
             <div class="imgCaption">
                 <h4>1호 기본 (30개입)</h4>
-                <h4>32,000원 / 1.2kg</h4>
-                <h6>(시중 소비자가 42,000원)</h6>
+                <h4>32,000원</h4>
+                <!-- <h6>(시중 소비자가 42,000원)</h6> -->
             </div>
         </div>
         <label for="product1"></label>
@@ -42,8 +83,8 @@
             <img class="productImg" src="./images/products/2.jpeg" alt="" srcset="">
             <div class="imgCaption">
                 <h4>1호 고급 (30개입)</h4>
-                <h4>43,000원 / 1.5kg</h4>
-                <h6>(시중 소비자가 58,000원)</h6>
+                <h4>43,000원</h4>
+                <!-- <h6>(시중 소비자가 58,000원)</h6> -->
             </div>
         </div>
         <label for="product2"></label>
@@ -62,8 +103,8 @@
             <img class="productImg" src="./images/products/3.jpeg" alt="" srcset="">
             <div class="imgCaption">
                 <h4>3호 고급 (40개입)</h4>
-                <h4>63,000원 / 2.4kg</h4>
-                <h6>(시중 소비자가 78,000원)</h6>
+                <h4>63,000원</h4>
+                <!-- <h6>(시중 소비자가 78,000원)</h6> -->
             </div>
         </div>
         <label for="product3"></label>
@@ -81,9 +122,10 @@
         <div class="imgBox">
             <img class="productImg" src="./images/products/4.jpeg" alt="" srcset="">
             <div class="imgCaption">
-                <h4>4호 명품 (40개입)</h4>
-                <h4>85,000원 / 2,8kg</h4>
-                <h6>(시중 소비자가 105,000원)</h6>
+                <h4>4호 명품 </h4>
+                <h4>(40개입)</h4>
+                <h4>85,000원</h4>
+                <!-- <h6>(시중 소비자가 105,000원)</h6> -->
             </div>
         </div>
         <label for="product4"></label>
@@ -102,8 +144,8 @@
             <img class="productImg" src="./images/products/5.jpeg" alt="" srcset="">
             <div class="imgCaption">
                 <h4>5호 명품특 (40개입)</h4>
-                <h4>110,000원 / 3.5kg</h4>
-                <h6>(시중 소비자가 150,000원)</h6>
+                <h4>110,000원</h4>
+                <!-- <h6>(시중 소비자가 150,000원)</h6> -->
             </div>
         </div>
         <label for="product5"></label>
@@ -124,7 +166,7 @@
         <br>
         <input type="text" id="send_name" name="send_name">
         <br>
-        <label for="send_contact">휴대폰 연락처</label>
+        <label for="send_contact">주문자 연락처</label>
         <br>
         <input type="text" id="send_contact" name="send_contact">
         <br>
@@ -141,19 +183,7 @@
         <br>
         <input type="text" id="rcv_address" name="rcv_address">
         <br>
-        <label for="reserve_date">발송일 예약</label>
-        <!-- option -->
-        <br>
-        <select name="reserve_date" id="reserve_date">
-            <option>choose</option>
-            <option>1/29</option>
-            <option>1/30</option>
-            <option>1/31</option>
-            <option>2/1</option>
-            <option>2/2</option>
-            <option>2/3</option>
-        </select>
-        <br>
+        
         <label for="request_etc">기타 요청사항</label>
         <br>
         <input type="text" id="request_etc" name="request_etc" >

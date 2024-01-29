@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호랑곶감 주문페이지</title>
+    <link rel="stylesheet" href="admin_typeOrder.css">
+</head>
+<body>
+    <div class="header">
+        <div>호랑곶감 관리자 페이지3 <br>주문넣기</div>
+        <div class="box_links">
+            <button>link1</button>
+            <button>link2</button>
+            <button>link3</button>
+            <button>link4</button>
+        </div>
+    </div>
+
+
+    <div id="orderBox">
+        <h4>여기 복사해주세요</h4>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+       
+        <label for="send_name">주문자 성함</label>
+        <br>
+        <input type="text" id="send_name" name="send_name">
+        <br>
+        
+        <label for="send_name">주문자 성함</label>
+        <br>
+        <input type="text" id="send_name" name="send_name">
+        <br>
+        <label for="send_contact">휴대폰 연락처</label>
+        <br>
+        <input type="text" id="send_contact" name="send_contact">
+        <br>
+        <label for="rcv_name">받는 분 성함</label>
+        <!-- <h5>똑같아도 써주세요!</h5> -->
+        <br>
+        <input type="text" id="rcv_name" name="rcv_name">
+        <br>
+        <label for="rcv_contact">받는 분 연락처</label>
+        <br>
+        <input type="text" id="rcv_contact" adress="rcv_contact">
+        <br>
+        <label for="rcv_address">받는 분 주소</label>
+        <br>
+        <input type="text" id="rcv_address" name="rcv_address">
+        <br>
+        <label for="reserve_date">발송일 예약</label>
+        <!-- option -->
+        <br>
+        <select name="reserve_date" id="reserve_date">
+            <option>choose</option>
+            <option>1/29</option>
+            <option>1/30</option>
+            <option>1/31</option>
+            <option>2/1</option>
+            <option>2/2</option>
+            <option>2/3</option>
+        </select>
+        <br>
+        <label for="request_etc">기타 요청사항</label>
+        <br>
+        <input type="text" id="request_etc" name="request_etc" >
+        <br>
+        <label for="request_delivery">배송 요청사항</label>
+        <br>
+        <input type="text" id="request_delivery" name="request_delivery" >
+        <br>
+
+        <button id="btn_submit" onclick="submitOrder()">주문하기</button>
+        <div id="loading" style="display: block;"></div>
+    </div>
+    
+    
+    <script src="./admin_typeOrder.js"></script>
+</body>
+</html>

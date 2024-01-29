@@ -27,9 +27,9 @@ async function submitOrder() {
         };
         console.log(orderData);        
         // global
-        const response = await fetch('https://ec2.flaresolution.com/submit-order', {
+        // const response = await fetch('https://ec2.flaresolution.com/submit-order', {
         // local
-        // const response = await fetch('http://localhost:5008/submit-order', {
+        const response = await fetch('http://localhost:5008/submit-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -144,14 +144,16 @@ function hiddenOrder(){
 // update price
 function update_price(){
     
+
     let product1 = document.querySelector("#product1").value;
     let product2 = document.querySelector("#product2").value;
     let product3 = document.querySelector("#product3").value;
     let product4 = document.querySelector("#product4").value;
     let product5 = document.querySelector("#product5").value;
     const priceTag = document.querySelector("#priceTag");
-    console.log(calculate_price(product1,product2,product3,product4,product5));
-    console.log(priceTag);
+    if(priceTag.classList.contains("none")){
+        priceTag.classList.remove("none");
+    }
     priceTag.innerHTML = "현재 금액 = "+ calculate_price(product1,product2,product3,product4,product5) +"원<br> (50000원 이상 무료배송)";
 }
 
