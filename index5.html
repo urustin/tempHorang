@@ -11,9 +11,11 @@
     <h4></h4>
 
     <div class="box_description">
-        <h4>상세한 상품 설명을 꼭 먼저 확인해주세요!
-            <button><a href="https://blog.naver.com/sanzalag/222162521584">상세한 상품설명 보기</a></button>
+        <h4 style="font-weight: 700;">상세한 상품 설명과 안내사항을<br>꼭꼭꼭! 먼저 확인해주세요!<br>
+            <button id="btn_detail"><a href="https://blog.naver.com/sanzalag/222162521584">상세보기</a></button>
         </h4>
+        <br>
+        
         <h4>
             입금 후 다음날부터 주문내역을 조회하실 수 있습니다!
             <button><a href="https://temp-horang.vercel.app/index.html">주문 확인</a></button>
@@ -31,6 +33,7 @@
     <br>
     <div id="orderBox">
 
+        <form id="orderForm" onsubmit="submitOrder(); return false;">
         
         <!-- <h2 style="margin-bottom: 30px;">상품 선택</h2> -->
         <!-- price -->
@@ -55,6 +58,10 @@
             <option value="4">4개</option>
             <option value="5">5개</option>
             <option value="6">6개</option>
+            <option value="6">7개</option>
+            <option value="6">8개</option>
+            <option value="6">9개</option>
+            <option value="6">10개</option>
         </select>
         <br>
         <!-- 2 -->
@@ -75,6 +82,10 @@
             <option value="4">4개</option>
             <option value="5">5개</option>
             <option value="6">6개</option>
+            <option value="6">7개</option>
+            <option value="6">8개</option>
+            <option value="6">9개</option>
+            <option value="6">10개</option>
         </select>
         <br>
         <!-- 3 -->
@@ -95,6 +106,10 @@
             <option value="4">4개</option>
             <option value="5">5개</option>
             <option value="6">6개</option>
+            <option value="6">7개</option>
+            <option value="6">8개</option>
+            <option value="6">9개</option>
+            <option value="6">10개</option>
         </select>
         <br>
         <!-- 4 -->
@@ -109,13 +124,7 @@
         </div>
         <label for="product4"></label>
         <select id="product4" name="product4" oninput="update_price()">
-            <option value="0" disabled selected>갯수</option>
-            <option value="1">1개</option>
-            <option value="2">2개</option>
-            <option value="3">3개</option>
-            <option value="4">4개</option>
-            <option value="5">5개</option>
-            <option value="6">6개</option>
+            <option value="0" disabled selected>품절</option>
         </select>
         <br>
         <!-- 5 -->
@@ -129,19 +138,14 @@
         </div>
         <label for="product5"></label>
         <select id="product5" name="product5" oninput="update_price()">
-            <option value="0" disabled selected>갯수</option>
-            <option value="1">1개</option>
-            <option value="2">2개</option>
-            <option value="3">3개</option>
-            <option value="4">4개</option>
-            <option value="5">5개</option>
-            <option value="6">6개</option>
+            <option value="0" disabled selected>품절</option>
+            
         </select>
         <br>
         <div class="summary_order">
         </div>
         <br>
-        <div class="box_reserve_date">
+        <div class="box_reserve_date" style="margin-top: 20px;">
             <label for="reserve_date">날짜 지정</label>
             <!-- option -->
             <br>
@@ -149,58 +153,77 @@
             <h5>택배 도착일이 아닌 "발송일"을 지정 예약하실 수 있습니다.</h5>
             <h5>-보통 영업일 기준 1~2일 후 도착합니다.</h5>
             <h5>올해 설날은 2/10(토) 입니다!</h5>
-            <select name="reserve_date" id="reserve_date" style="margin-bottom: 30px;">
-                <option>날짜 선택하기</option>
-                <option>1/29</option>
-                <option>1/30</option>
-                <option>1/31</option>
-                <option>2/1</option>
-                <option>2/2</option>
-                <option>2/3</option>
+            <select name="reserve_date" id="reserve_date" style="margin-bottom: 30px;" required>
+                <option value="" disabled selected>날짜 선택하기</option>
+                <option value="1/30">1/30</option>
+                <option value="1/31">1/31</option>
+                <option value="2/1">2/1</option>
+                <option value="2/2">2/2</option>
+                <option value="2/3">2/3</option>
+                <option value="2/4">2/4</option>
+                <option value="2/5">2/5</option>
+                <option value="2/6">2/6</option>
             </select>
             <br>
         </div>
         <label for="send_name">주문자 성함</label>
         <br>
-        <input type="text" id="send_name" name="send_name">
+        <input type="text" id="send_name" name="send_name" required>
         <br>
         <label for="send_contact">주문자 연락처</label>
         <br>
-        <input type="text" id="send_contact" name="send_contact">
+        <input type="text" id="send_contact" name="send_contact" required>
         <br>
         <label for="rcv_name">받는 분 성함</label>
         <!-- <h5>똑같아도 써주세요!</h5> -->
         <br>
-        <input type="text" id="rcv_name" name="rcv_name">
+        <input type="text" id="rcv_name" name="rcv_name" required>
         <br>
         <label for="rcv_contact">받는 분 연락처</label>
         <br>
-        <input type="text" id="rcv_contact" adress="rcv_contact">
+        <input type="text" id="rcv_contact" adress="rcv_contact" required>
         <br>
         <label for="rcv_address">받는 분 주소</label>
         <br>
-        <input type="text" id="rcv_address" name="rcv_address">
+        <input type="text" id="rcv_address" name="rcv_address" required>
         <br>
         
-        <label for="request_etc">기타 요청사항</label>
+        <label for="request_etc">해청농원 요청사항</label>
         <br>
         <input type="text" id="request_etc" name="request_etc" >
         <br>
-        <label for="request_delivery">배송 요청사항</label>
+        <label for="request_delivery">택배사 요청사항</label>
         <br>
         <input type="text" id="request_delivery" name="request_delivery" >
         <br>
 
-        <button id="btn_submit" onclick="submitOrder()">주문하기</button>
+        <button id="btn_submit" type="submit">주문하기</button>
         <div id="loading" style="display: block;"></div>
+        <p><br>
+            * 개인정보 수집 및 이용 안내<br>
+            주체 : 해청농원<br>
+            항목 : 성함, 연락처, 주소<br>
+            목적 : 제품 배송 및 상담<br>
+            * 거부할 권리가 있으나 제품 구매가 불가능합니다.<br>
+            * 주문서를 제출하시면 동의한 것으로 간주됩니다.
+        </p>
+
+        </form>
     </div>
     
     <div id="result" style="display: none;">
-        <h4 id="totalFee">예상금액 : </h4>
+        <h2 style="font-size: 1.5rem;font-weight: 700;margin-bottom: 1rem;">주문이 접수되었습니다!</h2>
+        <h4>정성을 담아 보내겠습니다 :)</h4 >
+        <!-- <h4>감사합니다!</h4> -->
+        
+        <h4 id="totalFee">입금하실 금액 : </h4>
         <h4>계좌번호 : 농협 352-1386-3306-83 이광호</h4>
         <button onclick="copy_bankInfo()">계좌번호 복사하기</button>
+        <h4 style="font-weight: 700;margin-top: 30px;">주문 확인하기</h4>
         <div class="orderReview">
         </div>
+        <button><a href="http://pf.kakao.com/_INxgzxb">카톡 문의하기</a></button>
+        <button onclick="newOrder()">새 주문 접수하기</button>
     </div>
     <script src="./script5.js"></script>
 </body>

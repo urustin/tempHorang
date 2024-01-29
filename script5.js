@@ -104,13 +104,13 @@ function reviewOrder(){
                 <p>받는 분 연락처: ${order.rcv_contact}</p>
                 <p>받는 분 주소: ${order.rcv_address}</p>
                 <p>주문 내역:<br> ${orderListString}</p>
-                <p>총 금액(배송비 포함): ${price}</p>
+                <p>총 금액(배송비 포함): ${price.toLocaleString('ko-KR')+"원"}</p>
             </div>
         `;
         orderReview.innerHTML += orderInfo;
 
     const totalFee = document.querySelector("#totalFee");
-    totalFee.innerHTML = "예상금액 = "+ price;
+    totalFee.innerHTML = "입금하실 금액 : "+ price.toLocaleString('ko-KR')+"원";
     
 }
 
@@ -131,8 +131,11 @@ function hiddenOrder(){
     reviewOrder();
 
     const orderBox = document.querySelector("#orderBox");
-
+    const descriptionBox = document.querySelector(".box_description");
+    
     orderBox.innerHTML = "";
+    orderBox.style.marginBottom="0";
+    descriptionBox.innerHTML ="";
 
     
 
@@ -154,7 +157,7 @@ function update_price(){
     if(priceTag.classList.contains("none")){
         priceTag.classList.remove("none");
     }
-    priceTag.innerHTML = "현재 금액 = "+ calculate_price(product1,product2,product3,product4,product5) +"원<br> (50000원 이상 무료배송)";
+    priceTag.innerHTML = "현재 금액 = "+ calculate_price(product1,product2,product3,product4,product5).toLocaleString() +"원<br>(50000원 이하<br>택배비 4000원)";
 }
 
 let product1 = document.querySelector("#product1");
@@ -188,4 +191,17 @@ function stopLoadingAnimation() {
     const loadingElement = document.getElementById('loading');
     loadingElement.innerText ="";
     document.getElementById('loading').style.display = 'none';
+}
+
+
+// newOrder
+
+function newOrder(){
+    console.log("A");
+    let answer = window.confirm("새 주문을 시작하시겠습니까? 기존 주문 정보는 사라집니다!")
+    if(answer){
+        location.reload()
+    }else{
+
+    }
 }

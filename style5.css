@@ -16,6 +16,14 @@ h1{
     position: relative;
     
 }
+#btn_detail{
+    font-size: 20px;
+    padding: 20px;
+    display: block;
+    margin: 20px auto;
+
+}
+
 .box_description{
     line-height: 1.5;
 }
@@ -61,11 +69,13 @@ h1{
 
 #priceTag{
     position: fixed;
-    top:100px;
-    left:10%;
+    /* top:100px; */
+    left:5%;
+    bottom: 10%;
     text-align: left;
     z-index: 20;
-    background-color: white;
+    background-color: #3a4e5ff2;
+    color: white;
     padding: 10px;
     border-radius: 10px;
 }
@@ -73,6 +83,7 @@ h1{
 
     #priceTag{
         left:3%;
+        bottom:20px;
     }
 }
 
@@ -96,6 +107,9 @@ select{
 h5{
     font-size: 0.8rem;
 }
+#result{
+    line-height: 1.5;
+}
 #result h4,p{
     margin : 10px 0px;
 }
@@ -106,6 +120,10 @@ h5{
 @media screen and (max-width: 600px) {
 
     .imgBox .imgCaption h4,h6{
-        font-size: 0.5rem;
+        font-size: 0.9rem;
     }
+}
+
+select{
+    font-size: 20px;
 }
