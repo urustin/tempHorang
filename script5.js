@@ -27,9 +27,9 @@ async function submitOrder() {
         };
         console.log(orderData);        
         // global
-        // const response = await fetch('https://ec2.flaresolution.com/submit-order', {
+        const response = await fetch('https://ec2.flaresolution.com/submit-order', {
         // local
-        const response = await fetch('http://localhost:5008/submit-order', {
+        // const response = await fetch('http://localhost:5008/submit-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
