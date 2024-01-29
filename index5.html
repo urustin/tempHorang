@@ -36,28 +36,7 @@
         <!-- price -->
         <div id="priceTag" class="none">현재 금액 : 0원<br>(50000원 이하<br>택배비 4000원)</div>
 
-        <div class="box_reserve_date">
-
         
-            <label for="reserve_date">날짜 지정</label>
-            <!-- option -->
-            <br>
-            <h4>원하시는 발송 날짜를 골라주세요!</h4>
-            <h5>택배 도착일이 아닌 "발송일"을 지정 예약하실 수 있습니다.</h5>
-            <h5>-보통 영업일 기준 1~2일 후 도착합니다.</h5>
-            <h5>올해 설날은 2/10(토) 입니다!</h5>
-            <select name="reserve_date" id="reserve_date">
-                <option>choose</option>
-                <option>1/29</option>
-                <option>1/30</option>
-                <option>1/31</option>
-                <option>2/1</option>
-                <option>2/2</option>
-                <option>2/3</option>
-            </select>
-            <br>
-
-        </div>
         <!-- 1 -->
         <div class="imgBox">
             <img class="productImg" src="./images/products/1.jpeg" alt="" srcset="">
@@ -162,6 +141,25 @@
         <div class="summary_order">
         </div>
         <br>
+        <div class="box_reserve_date">
+            <label for="reserve_date">날짜 지정</label>
+            <!-- option -->
+            <br>
+            <h4>원하시는 발송 날짜를 골라주세요!</h4>
+            <h5>택배 도착일이 아닌 "발송일"을 지정 예약하실 수 있습니다.</h5>
+            <h5>-보통 영업일 기준 1~2일 후 도착합니다.</h5>
+            <h5>올해 설날은 2/10(토) 입니다!</h5>
+            <select name="reserve_date" id="reserve_date" style="margin-bottom: 30px;">
+                <option>날짜 선택하기</option>
+                <option>1/29</option>
+                <option>1/30</option>
+                <option>1/31</option>
+                <option>2/1</option>
+                <option>2/2</option>
+                <option>2/3</option>
+            </select>
+            <br>
+        </div>
         <label for="send_name">주문자 성함</label>
         <br>
         <input type="text" id="send_name" name="send_name">
