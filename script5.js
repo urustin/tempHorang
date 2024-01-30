@@ -119,7 +119,7 @@ function reviewOrder(){
 
 function calculate_price(item1,item2,item3,item4,item5){
     let price =0;
-    price = item1*32000+item2*43000+item3*63000+item4*85000+item5*110000;
+    price = (item1*32000)+(item2*43000)+(item3*63000)+(item4*85000)+(item5*110000);
     if(price<=50000){
         price+=4000;
     }
