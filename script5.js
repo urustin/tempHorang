@@ -11,6 +11,7 @@ async function submitOrder() {
     try {
         startLoadingAnimation();
         const orderData = {
+            sheetName: "구글응답",
             product1: document.querySelector("#product1").value,
             product2: document.querySelector("#product2").value,
             product3: document.querySelector("#product3").value,
@@ -118,8 +119,8 @@ function reviewOrder(){
 function calculate_price(item1,item2,item3,item4,item5){
     let price =0;
     price = item1*32000+item2*43000+item3*63000+item4*85000+item5*110000;
-    if(price>=50000){
-        price-=4000;
+    if(price<=50000){
+        price+=4000;
     }
     return price;
 }
@@ -178,11 +179,11 @@ function startLoadingAnimation() {
     let loadingInterval = "";
     const loadingElement = document.getElementById('loading');
     let dots = 0;
-    loadingElement.innerText = `조회중`;
+    loadingElement.innerText = `주문 접수중`;
     
     loadingInterval = setInterval(() => {
         dots = (dots + 1) % 4; // Cycle from 0 to 3
-        loadingElement.innerText = "조회중" + '.'.repeat(dots);
+        loadingElement.innerText = "주문 접수중" + '.'.repeat(dots);
     }, 200); // Update every 200 milliseconds
 }
 
@@ -196,10 +197,9 @@ function stopLoadingAnimation() {
 // newOrder
 
 function newOrder(){
-    console.log("A");
     let answer = window.confirm("새 주문을 시작하시겠습니까? 기존 주문 정보는 사라집니다!")
     if(answer){
-        location.reload()
+        location.reload();
     }else{
 
     }
