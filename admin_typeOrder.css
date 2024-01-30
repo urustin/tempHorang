@@ -5,6 +5,7 @@
 body{
     font-family: 'Noto Sans KR', sans-serif;  
     text-align: center; 
+    height: 1000px;
 }
 
 .header{
@@ -85,7 +86,7 @@ h1{
     /* margin-bottom: 150px; */
 }
 #orderBox{
-    margin-bottom: 150px;
+    margin-bottom: 20px;
 }
 label{
     font-weight: 700;
@@ -109,4 +110,17 @@ h5{
     .imgBox .imgCaption h4,h6{
         font-size: 0.5rem;
     }
+}
+
+
+
+.orderList input{
+    width: 30px;
+}
+.orderList input:last-child{
+    width: auto;
+}
+
+#newOrder{
+   margin: 400px auto;
 }

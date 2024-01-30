@@ -12,19 +12,20 @@ async function submitOrder() {
         startLoadingAnimation();
         const orderData = {
             sheetName: "구글응답",
-            product1: document.querySelector("#product1").value,
-            product2: document.querySelector("#product2").value,
-            product3: document.querySelector("#product3").value,
-            product4: document.querySelector("#product4").value,
-            product5: document.querySelector("#product5").value,
+            product1: document.querySelector("#product1").value==="0"?"":document.querySelector("#product1").value,
+            product2: document.querySelector("#product2").value==="0"?"":document.querySelector("#product2").value,
+            product3: document.querySelector("#product3").value==="0"?"":document.querySelector("#product3").value,
+            product4: document.querySelector("#product4").value==="0"?"":document.querySelector("#product4").value,
+            product5: document.querySelector("#product5").value==="0"?"":document.querySelector("#product5").value,
+            productEtc: "",
             send_name: document.querySelector("#send_name").value,
             send_contact: document.querySelector("#send_contact").value,
             rcv_name: document.querySelector("#rcv_name").value,
             rcv_contact: document.querySelector("#rcv_contact").value,
             rcv_address: document.querySelector("#rcv_address").value,
-            reserve_date: document.querySelector("#reserve_date").value,
+            reserve_date: formatDate(document.querySelector("#reserve_date").value),
             request_etc: document.querySelector("#request_etc").value,
-            request_delivery: document.querySelector("#request_delivery").value
+            request_delivery: document.querySelector("#request_delivery").value,
         };
         console.log(orderData);        
         // global
@@ -216,3 +217,20 @@ function validate_form(){
     }
     
 }
+
+function formatDate(dateString) {
+    // 현재 연도를 가져옵니다.
+    const currentYear = new Date().getFullYear();
+
+    // 주어진 날짜 문자열에 현재 연도를 추가하여 Date 객체 생성
+    const date = new Date(`${dateString}/${currentYear}`);
+
+    // 요일을 한글로 변환하는 배열
+    const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
+
+    // 월, 일, 요일 포매팅
+    const formattedDate = `${date.getMonth() + 1}월 ${date.getDate()}일(${weekdays[date.getDay()]})`;
+
+    return formattedDate;
+}
+

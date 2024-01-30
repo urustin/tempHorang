@@ -21,19 +21,18 @@
     <div id="orderBox">
         <h4>여기 복사해주세요</h4>
         <textarea name="" id="" cols="30" rows="10"></textarea>
-       
-        <label for="send_name">주문자 성함</label>
         <br>
-        <input type="text" id="send_name" name="send_name">
         <br>
+        <br>
+        
         
         <label for="send_name">주문자 성함</label>
         <br>
-        <input type="text" id="send_name" name="send_name">
+        <input type="text" id="send_name" name="send_name" placeholder="없다면 0으로">
         <br>
-        <label for="send_contact">휴대폰 연락처</label>
+        <label for="send_contact">주문자 연락처</label>
         <br>
-        <input type="text" id="send_contact" name="send_contact">
+        <input type="text" id="send_contact" name="send_contact" placeholder="없다면 0으로">
         <br>
         <label for="rcv_name">받는 분 성함</label>
         <!-- <h5>똑같아도 써주세요!</h5> -->
@@ -46,35 +45,59 @@
         <br>
         <label for="rcv_address">받는 분 주소</label>
         <br>
-        <input type="text" id="rcv_address" name="rcv_address">
         <br>
-        <label for="reserve_date">발송일 예약</label>
+        <textarea name="rcv_address" id="rcv_address" cols="20" rows="5"></textarea>
+        
+        <br>
+        <div class="orderList">
+            <label for="product1">1호</label>
+
+            <input type="text" id="product1" name="product1">
+
+            <label for="product2">2호</label>
+
+            <input type="text" id="product2" name="product2">
+
+            <label for="product3">3호</label>
+
+            <input type="text" id="product3" name="product3">
+
+            <label for="product4">4호</label>
+
+            <input type="text" id="product4" name="product4">
+
+            <label for="product5">5호</label>
+
+            <input type="text" id="product5" name="product5">
+
+            <label for="productEtc">기타</label>
+
+            <input type="text" id="productEtc" name="productEtc">
+        </div>
+
+
+        <label for="reserve_date">예약 발송일 </label>
         <!-- option -->
         <br>
-        <select name="reserve_date" id="reserve_date">
-            <option>choose</option>
-            <option>1/29</option>
-            <option>1/30</option>
-            <option>1/31</option>
-            <option>2/1</option>
-            <option>2/2</option>
-            <option>2/3</option>
-        </select>
+        <input type="text" id="reserve_date" name="reserve_date" placeholder="(1/30) 이런식으로" >
         <br>
-        <label for="request_etc">기타 요청사항</label>
+        <label for="request_etc">해청농원 요청사항</label>
         <br>
-        <input type="text" id="request_etc" name="request_etc" >
+        <input type="text" id="request_etc" name="request_etc">
         <br>
-        <label for="request_delivery">배송 요청사항</label>
+        <label for="request_delivery">택배사 요청사항</label>
         <br>
         <input type="text" id="request_delivery" name="request_delivery" >
         <br>
 
         <button id="btn_submit" onclick="submitOrder()">주문하기</button>
-        <div id="loading" style="display: block;"></div>
+        
     </div>
     
-    
+    <div id="loading" style="display: block;"></div>
+        
+    <button id="newOrder" onclick="newOrder()" style="display: none;">새 주문 접수하기</button>
+
     <script src="./admin_typeOrder.js"></script>
 </body>
 </html>
