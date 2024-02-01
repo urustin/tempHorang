@@ -83,7 +83,7 @@ function resetOrder(){
 
     let answer = window.confirm("새 주문을 시작합니다! 발송인이 같은 분이실까요?")
     if(answer){
-        alert("A");
+        // alert("A");
         document.querySelector("#product1").value="";
         document.querySelector("#product2").value="";
         document.querySelector("#product3").value="";
@@ -99,7 +99,7 @@ function resetOrder(){
         document.querySelector("#request_etc").value="";
         document.querySelector("#request_delivery").value="";
     }else{
-        alert("B");
+        // alert("B");
         document.querySelector("#product1").value="";
         document.querySelector("#product2").value="";
         document.querySelector("#product3").value="";
