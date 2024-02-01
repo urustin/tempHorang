@@ -149,8 +149,8 @@ async function imageText() {
     formData.append('file', fileInput.files[0]);
 
     try {
-        // const response = await fetch(`https://ec2.flaresolution.com/image-text`);
-        const response = await fetch('http://localhost:5008/image-text', {
+        const response = await fetch(`https://ec2.flaresolution.com/image-text`, {
+        // const response = await fetch('http://localhost:5008/image-text', {
             method: 'POST',
             body: formData,
         });
