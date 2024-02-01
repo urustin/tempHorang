@@ -11,9 +11,9 @@ async function submitOrder() {
             product5: document.querySelector("#product5").value,
             productEtc: document.querySelector("#productEtc").value,
             send_name: document.querySelector("#send_name").value,
-            send_contact: document.querySelector("#send_contact").value,
+            send_contact: document.querySelector("#send_contact").value.replaceAll("-",""),
             rcv_name: document.querySelector("#rcv_name").value,
-            rcv_contact: document.querySelector("#rcv_contact").value,
+            rcv_contact: document.querySelector("#rcv_contact").value.replaceAll("-",""),
             rcv_address: document.querySelector("#rcv_address").value,
             reserve_date: formatDate(document.querySelector("#reserve_date").value),
             request_etc: document.querySelector("#request_etc").value,
@@ -38,10 +38,12 @@ async function submitOrder() {
         const data = await response.json();
         console.log(data);
 
-        hiddenOrder();
+        // hiddenOrder();
+        
         const newOrder = document.querySelector("#newOrder");
         newOrder.style.display = "block";
         stopLoadingAnimation();
+        resetOrder();
     } catch (error) {
         stopLoadingAnimation();
         console.error('Error:', error);
@@ -51,9 +53,9 @@ async function submitOrder() {
 
 function hiddenOrder(){
 
-    const orderBox = document.querySelector("#orderBox");
-    orderBox.style.marginBottom="0";
-    orderBox.innerHTML = "";
+    // const orderBox = document.querySelector("#orderBox");
+    // orderBox.style.marginBottom="0";
+    // orderBox.innerHTML = "";
     
 }
 
@@ -77,8 +79,42 @@ function stopLoadingAnimation() {
 }
 
 
-function newOrder(){
-        location.reload();
+function resetOrder(){
+
+    let answer = window.confirm("새 주문을 시작합니다! 발송인이 같은 분이실까요?")
+    if(answer){
+        alert("A");
+        document.querySelector("#product1").value="";
+        document.querySelector("#product2").value="";
+        document.querySelector("#product3").value="";
+        document.querySelector("#product4").value="";
+        document.querySelector("#product5").value="";
+        document.querySelector("#productEtc").value="";
+        // document.querySelector("#send_name").value="";
+        // document.querySelector("#send_contact").value="";
+        document.querySelector("#rcv_name").value="";
+        document.querySelector("#rcv_contact").value="";
+        document.querySelector("#rcv_address").value="";
+        document.querySelector("#reserve_date").value="";
+        document.querySelector("#request_etc").value="";
+        document.querySelector("#request_delivery").value="";
+    }else{
+        alert("B");
+        document.querySelector("#product1").value="";
+        document.querySelector("#product2").value="";
+        document.querySelector("#product3").value="";
+        document.querySelector("#product4").value="";
+        document.querySelector("#product5").value="";
+        document.querySelector("#productEtc").value="";
+        document.querySelector("#send_name").value="";
+        document.querySelector("#send_contact").value="";
+        document.querySelector("#rcv_name").value="";
+        document.querySelector("#rcv_contact").value="";
+        document.querySelector("#rcv_address").value="";
+        document.querySelector("#reserve_date").value="";
+        document.querySelector("#request_etc").value="";
+        document.querySelector("#request_delivery").value="";
+    }
 }
 
 
@@ -99,3 +135,32 @@ function formatDate(dateString) {
     return formattedDate;
 }
 
+
+
+// image OCR
+
+async function imageText() {
+    const fileInput = document.querySelector('#imageUpload');
+    if(fileInput.files.length === 0) {
+        alert("Please select a file first.");
+        return;
+    }
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+
+    try {
+        // const response = await fetch(`https://ec2.flaresolution.com/image-text`);
+        const response = await fetch('http://localhost:5008/image-text', {
+            method: 'POST',
+            body: formData,
+        });
+        if(!response.ok) throw new Error('Network response was not ok.');
+        const data = await response.json();
+        console.log(data);
+
+        document.querySelector("#tempText").innerHTML = data;
+    } catch (error) {
+        console.error('Error:', error);
+        alert("Failed to analyze the image.");
+    }
+}

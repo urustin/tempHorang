@@ -20,12 +20,16 @@
 
     <div id="orderBox">
         <h4>여기 복사해주세요</h4>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea name="" id="tempText" cols="30" rows="10"></textarea>
+        
         <br>
+        <input type="file" id="imageUpload" accept="image/*">
+        <br>
+        <button id="imageSearch" onclick="imageText()">이미지 분석하기</button>
         <br>
         <br>
         
-        
+        <br>
         <label for="send_name">주문자 성함</label>
         <br>
         <input type="text" id="send_name" name="send_name" placeholder="없다면 0으로">
